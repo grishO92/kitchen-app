@@ -1,9 +1,9 @@
 <template>
   <div class="card">
-    <img class="img" src="../../../assets/pancakes.jpg" />
+    <img class="img" src="../../assets/breakfast.jpg" />
     <div class="info">
       <h2 class="title">Pancakes</h2>
-      <a href="/details/:id">Details</a>
+      <a href="/details">Details</a>
     </div>
   </div>
 </template>

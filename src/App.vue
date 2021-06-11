@@ -1,7 +1,9 @@
 <template>
   <div class="front">
     <Header />
-    <MainContent />
+    <div class="content">
+      <MainContent />
+    </div>
     <Footer />
   </div>
 </template>
@@ -33,6 +35,10 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+.content {
+  display: flex;
+  justify-content: center;
 }
 
 #app {

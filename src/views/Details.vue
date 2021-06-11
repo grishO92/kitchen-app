@@ -2,7 +2,7 @@
   <div class="details">
     <h2>Details</h2>
     <div class="card">
-      <img class="img" src="../../assets/pancakes.jpg" />
+      <img class="img" src="../assets/pancakes.jpg" />
       <div class="detail-grid">
         <div class="desc">
           <div class="title"><span>title: </span>Pancakes</div>
@@ -37,9 +37,9 @@
           </div>
         </div>
         <div class="btns">
-          <a class="btn edit">Edit</a>
-          <a class="btn delete">Delete</a>
-          <a class="btn back">Back</a>
+          <a href="/edit" class="btn edit">Edit</a>
+          <a href="/catalog" class="btn delete">Delete</a>
+          <a href="/catalog" class="btn back">Back</a>
         </div>
       </div>
     </div>
@@ -129,6 +129,7 @@ export default {
   border: 2px solid var(--color-one);
   background-color: var(--color-one);
   color: var(--color-two);
+  text-decoration: none;
   cursor: pointer;
 }
 

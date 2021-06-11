@@ -21,7 +21,7 @@
     <textarea type="text" placeholder="directions" name="directions" />
     <div class="buttons">
       <button class="createbtn" type="submit">Edit</button>
-      <a class="cancelBtn" href="/catalog">Cancel</a>
+      <a class="cancelBtn" href="/details">Cancel</a>
     </div>
   </form>
 </template>
