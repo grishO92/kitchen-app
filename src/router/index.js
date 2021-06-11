@@ -10,14 +10,14 @@ import Register from '../views/Register.vue';
 
 const routes = [
   {
+    path: '/',
+    name: 'Catalog',
+    component: Catalog,
+  },
+  {
     path: '/about',
     name: 'About',
     component: About,
-  },
-  {
-    path: '/catalog',
-    name: 'Catalog',
-    component: Catalog,
   },
   {
     path: '/create',
@@ -25,12 +25,12 @@ const routes = [
     component: Create,
   },
   {
-    path: '/details',
+    path: '/details/:id',
     name: 'Details',
     component: Details,
   },
   {
-    path: '/edit',
+    path: '/edit/:id',
     name: 'Edit',
     component: Edit,
   },

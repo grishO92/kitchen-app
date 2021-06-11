@@ -37,9 +37,18 @@
           </div>
         </div>
         <div class="btns">
-          <a href="/edit" class="btn edit">Edit</a>
-          <a href="/catalog" class="btn delete">Delete</a>
-          <a href="/catalog" class="btn back">Back</a>
+          <router-link
+            class="btn edit"
+            :to="{ name: 'Edit', params: { id: ':id' } }"
+          >
+            Edit
+          </router-link>
+          <router-link class="btn delete" :to="{ name: 'Catalog' }">
+            Delete
+          </router-link>
+          <router-link class="btn back" :to="{ name: 'Catalog' }">
+            Back
+          </router-link>
         </div>
       </div>
     </div>

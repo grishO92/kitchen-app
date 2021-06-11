@@ -5,7 +5,11 @@
     <input type="password" placeholder="Enter Password" name="psw" required />
     <button type="submit">Log in</button>
     <h5>
-      Don't have an account? Click <a href="/register">here</a> to register.
+      Don't have an account? Click
+      <router-link :to="{ name: 'Register' }">
+        here
+      </router-link>
+      to register.
     </h5>
   </form>
 </template>

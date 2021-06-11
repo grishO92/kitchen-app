@@ -21,7 +21,9 @@
     <textarea type="text" placeholder="directions" name="directions" />
     <div class="buttons">
       <button class="createbtn" type="submit">Create</button>
-      <a class="cancelBtn" href="/catalog">Cancel</a>
+      <router-link class="cancelBtn" :to="{ name: 'Catalog' }">
+        Cancel
+      </router-link>
     </div>
   </form>
 </template>

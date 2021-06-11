@@ -50,7 +50,7 @@ export default {
 .catalog .card-grid {
   display: grid;
   margin: 0rem 3rem;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 400px;
 }

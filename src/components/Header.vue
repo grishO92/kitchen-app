@@ -4,12 +4,24 @@
       THE KITCHEN
     </div>
     <div class="nav">
-      <a href="/catalog">Catalog</a>
-      <a href="/create">Create</a>
-      <a href="/register">Register</a>
-      <a href="/login">Login</a>
-      <a href="/about">About</a>
-      <a href="/logout">Logout</a>
+      <router-link :to="{ name: 'Catalog' }">
+        Catalog
+      </router-link>
+      <router-link :to="{ name: 'Create' }">
+        Create
+      </router-link>
+      <router-link :to="{ name: 'Register' }">
+        Register
+      </router-link>
+      <router-link :to="{ name: 'Login' }">
+        Login
+      </router-link>
+      <router-link :to="{ name: 'About' }">
+        About
+      </router-link>
+      <router-link :to="{ name: 'Catalog' }">
+        Logout
+      </router-link>
     </div>
   </div>
 </template>

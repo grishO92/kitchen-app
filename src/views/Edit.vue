@@ -21,7 +21,12 @@
     <textarea type="text" placeholder="directions" name="directions" />
     <div class="buttons">
       <button class="createbtn" type="submit">Edit</button>
-      <a class="cancelBtn" href="/details">Cancel</a>
+      <router-link
+        class="cancelBtn"
+        :to="{ name: 'Details', params: { id: ':id' } }"
+      >
+        Cancel
+      </router-link>
     </div>
   </form>
 </template>

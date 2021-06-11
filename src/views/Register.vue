@@ -10,7 +10,13 @@
       required
     />
     <button type="submit">Register</button>
-    <h5>Already have an account? Click <a href="/login">here</a> to login.</h5>
+    <h5>
+      Already have an account? Click
+      <router-link :to="{ name: 'Login' }">
+        here
+      </router-link>
+      to login.
+    </h5>
   </form>
 </template>
 

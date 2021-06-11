@@ -3,7 +3,9 @@
     <img class="img" src="../../assets/breakfast.jpg" />
     <div class="info">
       <h2 class="title">Pancakes</h2>
-      <a href="/details">Details</a>
+      <router-link :to="{ name: 'Details', params: { id: ':id' } }">
+        Details
+      </router-link>
     </div>
   </div>
 </template>
