@@ -8,6 +8,8 @@ import Edit from '../views/Edit.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 
+import firebase from 'firebase';
+
 const routes = [
   {
     path: '/',
@@ -23,6 +25,7 @@ const routes = [
     path: '/create',
     name: 'Create',
     component: Create,
+    meta: { requiresAuth: true },
   },
   {
     path: '/details/:id',
@@ -33,6 +36,7 @@ const routes = [
     path: '/edit/:id',
     name: 'Edit',
     component: Edit,
+    meta: { requiresAuth: true },
   },
   {
     path: '/login',
@@ -49,6 +53,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const isAuthenticated = firebase.auth().currentUser;
+  requiresAuth && !isAuthenticated ? next('/login') : next();
 });
 
 export default router;

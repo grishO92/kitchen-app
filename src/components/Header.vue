@@ -7,19 +7,19 @@
       <router-link :to="{ name: 'Catalog' }">
         Catalog
       </router-link>
-      <router-link :to="{ name: 'Create' }">
+      <router-link v-if="loggedIn" :to="{ name: 'Create' }">
         Create
       </router-link>
-      <router-link :to="{ name: 'Register' }">
+      <router-link v-if="!loggedIn" :to="{ name: 'Register' }">
         Register
       </router-link>
-      <router-link :to="{ name: 'Login' }">
+      <router-link v-if="!loggedIn" :to="{ name: 'Login' }">
         Login
       </router-link>
       <router-link :to="{ name: 'About' }">
         About
       </router-link>
-      <router-link :to="{ name: 'Catalog' }">
+      <router-link @click="logout" v-if="loggedIn" :to="{ name: 'Catalog' }">
         Logout
       </router-link>
     </div>
@@ -27,8 +27,31 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Header',
+
+  mounted() {
+    this.setupFirebase();
+  },
+  methods: {
+    setupFirebase() {
+      firebase.auth().onAuthStateChanged((user) => {
+        user ? (this.loggedIn = true) : (this.loggedIn = false);
+      });
+    },
+
+    async logout() {
+      await firebase.auth().signOut();
+      this.$router.replace({ name: 'Catalog' });
+    },
+  },
+  data() {
+    return {
+      loggedIn: false,
+    };
+  },
 };
 </script>
 

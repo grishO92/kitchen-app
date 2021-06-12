@@ -1,12 +1,17 @@
 <template>
-  <form class="register">
+  <form @submit.prevent="pressed" class="register">
     <h2>Register form</h2>
-    <input type="text" placeholder="Enter Username" name="uname" required />
-    <input type="password" placeholder="Enter Password" name="psw" required />
+    <input type="text" placeholder="Enter Email" v-model="email" required />
+    <input
+      type="password"
+      placeholder="Enter Password"
+      v-model="password"
+      required
+    />
     <input
       type="password"
       placeholder="Repeat Password"
-      name="repsw"
+      v-model="repass"
       required
     />
     <button type="submit">Register</button>
@@ -18,11 +23,46 @@
       to login.
     </h5>
   </form>
+  <div class="error" v-if="error">{{ error.message }}</div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Register',
+
+  data() {
+    return {
+      email: '',
+      password: '',
+      repass: '',
+      error: '',
+    };
+  },
+
+  methods: {
+    async pressed() {
+      if (this.email == '' || this.password == '' || this.repass == '') {
+        return alert('Please fill the fields!');
+      }
+
+      if (this.password != this.repass) {
+        return alert("Passwords don't match!");
+      }
+
+      try {
+        const user = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password);
+
+        console.log(user);
+        this.$router.replace({ name: 'Catalog' });
+      } catch (error) {
+        this.error = error;
+      }
+    },
+  },
 };
 </script>
 

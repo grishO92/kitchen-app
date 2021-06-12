@@ -1,8 +1,13 @@
 <template>
-  <form class="login">
+  <form @submit.prevent="pressed" class="login">
     <h2>Login form</h2>
-    <input type="text" placeholder="Enter Username" name="uname" required />
-    <input type="password" placeholder="Enter Password" name="psw" required />
+    <input type="text" placeholder="Enter Email" v-model="email" required />
+    <input
+      type="password"
+      placeholder="Enter Password"
+      v-model="password"
+      required
+    />
     <button type="submit">Log in</button>
     <h5>
       Don't have an account? Click
@@ -12,11 +17,35 @@
       to register.
     </h5>
   </form>
+  <div class="error" v-if="error">{{ error.message }}</div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Login',
+
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: '',
+    };
+  },
+
+  methods: {
+    async pressed() {
+      try {
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+        this.$router.replace({ name: 'Catalog' });
+      } catch (error) {
+        this.error = error;
+      }
+    },
+  },
 };
 </script>
 
