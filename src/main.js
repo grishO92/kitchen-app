@@ -4,7 +4,7 @@ import router from './router';
 import firebase from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: '',
+  apiKey: 'AIzaSyCcnJFhwotDkvOAm2qYrMdxxTBt-QRQIOU',
   authDomain: 'kitchen-app-81d78.firebaseapp.com',
   projectId: 'kitchen-app-81d78',
   storageBucket: 'kitchen-app-81d78.appspot.com',
